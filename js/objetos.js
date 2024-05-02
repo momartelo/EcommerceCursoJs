@@ -73,8 +73,8 @@ var data=[
     },
     {
         codigo: "07",
-        nombre: "Celular Samsung Galaxy",
         categoria: "Electronica",
+        nombre: "Celular Samsung Galaxy",
         precioRegular: "$600.00",
         precioFinal: "$550.00",
         imagen: "./img/galaxy-android-smartphone.jpg",
@@ -85,8 +85,8 @@ var data=[
     },
     {
         codigo: "08",
-        nombre: "Webster Parlante Bluetooth",
         categoria: "Electronica",
+        nombre: "Webster Parlante Bluetooth",
         precioRegular: "$100.00",
         precioFinal: "$85.00",
         imagen: "./img/webster-bluetooth-speakers.jpg",
@@ -98,8 +98,8 @@ var data=[
     },
     {
         codigo: "09",
-        nombre: "Microndas con Conveccion",
         categoria: "Electronica",
+        nombre: "Microndas con Conveccion",
         precioRegular: "$200.00",
         precioFinal: "$180.00",
         imagen: "./img/convection-micro-wave-owen.jpg",
@@ -110,8 +110,8 @@ var data=[
     },
     {
         codigo: "10",
-        nombre: "Pantalon de Algodon para Mujer",
         categoria: "Ropa",
+        nombre: "Pantalon de Algodon para Mujer",
         precioRegular: "",
         precioFinal: "$65.00",
         imagen: "./img/women-cotton-blend-trousers.jpg",

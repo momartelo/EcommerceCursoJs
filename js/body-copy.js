@@ -1,3 +1,24 @@
+function cambiarCantidad(cant){
+  if (cant.matches) {
+    cantidadDeProductos = 2;
+
+    } else {
+      cantidadDeProductos = 4;
+
+    }
+}
+
+const mmObj = window.matchMedia("(max-width: 769px)")
+
+cambiarCantidad(mmObj);
+
+mmObj.addEventListener("change", function() {
+  cambiarCantidad(mmObj);
+  window.location.reload()
+});
+
+
+
 
 //--------------Carrousel-------------------//
 
@@ -273,7 +294,8 @@ var popularCad=`
 <div class="popular-products-container">
   <div class="popular-products-list">
 `
-for (i=0; i < 4; i++) {
+for (i=0; i < cantidadDeProductos; i++) {
+    console.log(cantidadDeProductos)
     popularCad+=
     `   <div class="popular-products-product pr1">
             <article class="article-product">
@@ -341,7 +363,7 @@ for (i=0; i < 4; i++) {
                  } else {
                    popularCad+=
                    `
-                   <div class="price-price">
+                   <div class="product-price">
                    <span class="price">${dataOrdenada[i].precioFinal}</span>
                    </div>
                    `
@@ -509,14 +531,14 @@ for (i=0; i < data.length; i++){
               electronicsCad+=
             `
             <div class="product-price">
-              <!-- <span class="regular-price">${data[i].precioRegular}</span> -->
+              <span class="regular-price">${data[i].precioRegular}</span>
               <span class="price">${data[i].precioFinal}</span>
             </div>
             `
             } else {
             electronicsCad +=
             `
-            <div class="price-price">
+            <div class="product-price">
             <span class="price">${data[i].precioFinal}</span>
             </div>
             `
@@ -574,7 +596,7 @@ for (i=0; i < data.length; i++){
 `
 controlelec+=1
 }
-if (controlelec==4){
+if (controlelec==cantidadDeProductos){
   break
 }
 }
@@ -605,309 +627,141 @@ var clothesCad=`
 <div class="popular-products">
 <div class="popular-products-container">
   <div class="popular-products-list">
-    <div class="popular-products-product rya1">
-      <article class="article-product">
-        <div class="thumbnail-container-product">
-          <div class="thumbnail-top-product">
-            <a href="#">
-              <picture>
-                <img
-                  src="./img/premium-designer-hand-bag.jpg"
-                  alt=""
-              /></picture>
-              <button class="wishlist-button-add flex">
-                <img
-                  src="./img/corazon-strong.png"
-                  alt=""
-                  width="16px"
-                />
-              </button>
-            </a>
+`
+controlclo=0
+for (i=0; i < data.length; i++) {
+  if (data[i].categoria=="Ropa" || data[i].categoria=="Accesorios") {
+    clothesCad+=
+    `<div class="popular-products-product rya1">
+    <article class="article-product">
+      <div class="thumbnail-container-product">
+        <div class="thumbnail-top-product">
+          <a href="#">
+            <picture>
+              <img
+                src="${data[i].imagen}"
+                alt=""
+            /></picture>
+            <button class="wishlist-button-add flex">
+              <img
+                src="./img/corazon-strong.png"
+                alt=""
+                width="16px"
+              />
+            </button>
+          </a>`
+          if (data[i].discount!=false && data[i].nuevo==true) {
+          clothesCad+=          
+            `
             <ul class="product-flags">
-              <!-- <li class="product-flag discount">-$10.00</li> -->
+              <li class="product-flag discount">${data[i].discount}</li>
               <li class="product-flag new">New</li>
             </ul>
+            `
+          } else if (data[i].discount==false && data[i].nuevo==true){
+            clothesCad+=
+            `
+            <ul class="product-flags">
+            <li class="product-flag new">New</li>
+            </ul>   
+            `
+          } else if (data[i].discount!=false && data[i].nuevo!=true) {
+            clothesCad+=
+            `
+            <ul class="product-flags">
+            <li class="product-flag discount">${data[i].discount}</li>
+            </ul>
+            `
+          } else {
+            clothesCad+=
+            `
+            <ul class="product-flags">
+            </ul>
+            `
+          };
+          clothesCad+=
+          `
           </div>
           <div class="product-description-populars">
             <h3>
-              <a href="#">Cartera de Diseño Premium</a>
+              <a href="#">${data[i].nombre}</a>
             </h3>
+          `
+          if (data[i].discount!=false ){
+            clothesCad+=
+            `
             <div class="product-price">
-              <!-- <span class="regular-price"> $750.00 </span> -->
-              <span class="price"> $85.00 </span>
+              <span class="regular-price"> $750.00 </span>
+              <span class="price">${data[i].precioFinal}</span>
             </div>
+            `
+            } else {
+              clothesCad+=
+              `
+              <div class="product-price">
+              <span class="price">${data[i].precioFinal}</span>
+              </div>
+              `
+            }
+            clothesCad+=
+            `
             <div class="product-review">
-              <div
-                class="grade-stars stars-responsive flex2"
-              >
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <div class="comments-nb">(1)</div>
+            <div class="grade-stars stars-responsive flex2">
+            `
+            if (data[i].estrellas>0){
+              for(e=1; e<=data[i].estrellas; e++){
+              clothesCad+=
+                 `<img
+                    src="./img/estrella-dorada-16.png"
+                    alt=""
+                    width="20px"
+                  />
+                  `}
+                  for(a=1; a==5-data[i].estrellas; a++){
+                    clothesCad+=
+                 `<img
+                    src="./img/estrella-blanca-16.png"
+                    alt=""
+                    width="20px"
+                  />`
+                   }
+                  } else {
+                    for ( o=0; o==5; o++){
+                      clothesCad+=
+                      `<img
+                      src="./img/estrella-blanca-16.png"
+                      alt=""
+                      width="20px"
+                      />
+                      `
+                    }
+                  }
+                  clothesCad+=
+                  `
+                  <div class="comments-nb">(1)</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-hidden-container-popular">
+                <a href="#"
+                  ><img
+                    class="icono-cart-popular"
+                    src="./img/compras-Rojo.png"
+                    alt=""
+                /></a>
               </div>
             </div>
-          </div>
-          <div class="cart-hidden-container-popular">
-            <a href="#"
-              ><img
-                class="icono-cart-popular"
-                src="./img/compras-Rojo.png"
-                alt=""
-            /></a>
-          </div>
-        </div>
-      </article>
-    </div>
-    <div class="popular-products-product rya2">
-      <article class="article-product">
-        <div class="thumbnail-container-product">
-          <div class="thumbnail-top-product">
-            <a href="#">
-              <picture>
-                <img
-                  src="./img/smart-casual-men-sneakers.jpg"
-                  alt=""
-              /></picture>
-              <button class="wishlist-button-add flex">
-                <img
-                  src="./img/corazon-strong.png"
-                  alt=""
-                  width="16px"
-                />
-              </button>
-            </a>
-            <ul class="product-flags">
-              <li class="product-flag discount">-$5.00</li>
-              <li class="product-flag new">New</li>
-            </ul>
-          </div>
-          <div class="product-description-populars">
-            <h3>
-              <a href="#"
-                >Zapatillas Casuales para Hombres</a
-              >
-            </h3>
-            <div class="product-price">
-              <span class="regular-price"> $40.00 </span>
-              <span class="price"> $35.00 </span>
-            </div>
-            <div class="product-review">
-              <div
-                class="grade-stars stars-responsive flex2"
-              >
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <div class="comments-nb">(1)</div>
-              </div>
-            </div>
-          </div>
-          <div class="cart-hidden-container-popular">
-            <a href="#"
-              ><img
-                class="icono-cart-popular"
-                src="./img/compras-Rojo.png"
-                alt=""
-            /></a>
-          </div>
-        </div>
-      </article>
-    </div>
-    <div class="popular-products-product rya3">
-      <article class="article-product">
-        <div class="thumbnail-container-product">
-          <div class="thumbnail-top-product">
-            <a href="#">
-              <picture>
-                <img
-                  src="./img/formal-striped-women-top.jpg"
-                  alt=""
-              /></picture>
-              <button class="wishlist-button-add flex">
-                <img
-                  src="./img/corazon-strong.png"
-                  alt=""
-                  width="16px"
-                />
-              </button>
-            </a>
-            <ul class="product-flags">
-              <li class="product-flag discount">-$5.00</li>
-              <li class="product-flag new">New</li>
-            </ul>
-          </div>
-          <div class="product-description-populars">
-            <h3>
-              <a href="#">Top Formal de Mujer a Rayas</a>
-            </h3>
-            <div class="product-price">
-              <span class="regular-price"> $35.00 </span>
-              <span class="price"> $30.00 </span>
-            </div>
-            <div class="product-review">
-              <div
-                class="grade-stars stars-responsive flex2"
-              >
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-blanca-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <div class="comments-nb">(2)</div>
-              </div>
-            </div>
-          </div>
-          <div class="cart-hidden-container-popular">
-            <a href="#"
-              ><img
-                class="icono-cart-popular"
-                src="./img/compras-Rojo.png"
-                alt=""
-            /></a>
-          </div>
-        </div>
-      </article>
-    </div>
-    <div class="popular-products-product rya4">
-      <article class="article-product">
-        <div class="thumbnail-container-product">
-          <div class="thumbnail-top-product">
-            <a href="#">
-              <picture>
-                <img
-                  src="./img/women-cotton-blend-trousers.jpg"
-                  alt=""
-              /></picture>
-              <button class="wishlist-button-add flex">
-                <img
-                  src="./img/corazon-strong.png"
-                  alt=""
-                  width="16px"
-                />
-              </button>
-            </a>
-            <ul class="product-flags">
-              <!-- <li class="product-flag discount">-$20.00</li> -->
-              <li class="product-flag new">New</li>
-            </ul>
-          </div>
-          <div class="product-description-populars">
-            <h3>
-              <a href="#">Pantalon de Algodon para Mujer</a>
-            </h3>
-            <div class="product-price">
-              <!-- <span class="regular-price"> $200.00 </span> -->
-              <span class="price"> $65.00 </span>
-            </div>
-            <div class="product-review">
-              <div
-                class="grade-stars stars-responsive flex2"
-              >
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="./img/estrella-dorada-16.png"
-                  alt=""
-                  width="20px"
-                />
-                <div class="comments-nb">(2)</div>
-              </div>
-            </div>
-          </div>
-          <div class="cart-hidden-container-popular">
-            <a href="#"
-              ><img
-                class="icono-cart-popular"
-                src="./img/compras-Rojo.png"
-                alt=""
-            /></a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
+          </article>
+        </div>`
+
+        controlclo+=1
+  }
+  if (controlclo==cantidadDeProductos){
+    break
+  }
+}
+clothesCad+=
+  `</div>
 </div>
 </div>
 `
