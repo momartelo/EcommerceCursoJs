@@ -341,7 +341,7 @@ for (i=0; i < 4; i++) {
                  } else {
                    popularCad+=
                    `
-                   <div class="price-shipping">
+                   <div class="price-price">
                    <span class="price">${dataOrdenada[i].precioFinal}</span>
                    </div>
                    `
@@ -516,7 +516,7 @@ for (i=0; i < data.length; i++){
             } else {
             electronicsCad +=
             `
-            <div class="price-shipping">
+            <div class="price-price">
             <span class="price">${data[i].precioFinal}</span>
             </div>
             `
