@@ -78,6 +78,7 @@ body {
 .section-wrapper {
   padding: 1.875rem 0;
   width: 100%;
+  max-width: 1320px;
 }
 
 .body-container {
@@ -814,7 +815,7 @@ body {
     width: 12px;
   }
 
-  .popular-products-product{
+  .popular-products-product {
     width: 35%;
   }
 
@@ -1065,7 +1066,7 @@ body {
     width: 12px;
   }
 
-  .popular-products-product{
+  .popular-products-product {
     width: 40%;
   }
 
