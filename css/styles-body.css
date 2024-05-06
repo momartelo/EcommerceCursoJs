@@ -451,6 +451,8 @@ body {
 .countdown-icon {
   animation: spin 2s linear infinite;
   width: 10%;
+  max-width: 24px;
+  min-width: 24px;
 }
 
 .countdown-time {

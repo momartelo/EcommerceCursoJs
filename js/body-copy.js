@@ -206,7 +206,7 @@ for (i = 0; i < data.length; i++) {
       }
     }
 
-    onsaleCad += `
+    onsaleCad +=`
            <div class="comments-nb">(${data[i].comentarios})</div>
             </div>
             <div class="tptncountdown flex">
@@ -219,11 +219,55 @@ for (i = 0; i < data.length; i++) {
                     height="24px"
                   />
                 </div>
-                <div id="countdown${[i]}" class="countdown-time flex">
-                </div>
-              </div>
-            </div>
-          </div>
+                <div class="countdown-time flex">
+                `;
+                
+                function iniciarContador(endDate){
+                  const countdownInterval = setInterval(() => {
+                  const now = new Date().getTime();
+                  const distance = endDate - now;
+                  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                  console.log(days)
+                  const hours = Math.floor(
+                    (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    onsaleCad +=`
+                  <div class="countdown-days timer flex">
+                  <span><strong>22</strong></span>
+                  <span>Dias</span>
+                  </div>
+                  <div class="countdown-hours timer flex">
+                  <span><strong>33</strong></span>
+                  <span>Hrs</span>
+                  </div>
+                  <div class="countdown-minutes timer flex">
+                  <span><strong>11</strong></span>
+                  <span>Mins</span>
+                  </div>
+                  <div class="countdown-seconds timer flex">
+                  <span><strong>22</strong></span>
+                  <span>Segs</span>
+                  </div>
+
+                  `;
+
+                  if (distance <= 0) {
+                  clearInterval(countdownInterval);
+                  countdownElement.innerHTML = "¡El countdown ha terminado!";
+                }
+                return {days, hours, minutes, seconds};
+                }, 1000);
+                return countdownInterval;}
+
+
+                const endDate = new Date(`${data[i].offerup}`+`T00:00:00`).getTime();
+                const counter = iniciarContador(endDate)
+
+
+    onsaleCad+=`
+        </div>
+        </div>
         </div>
         <div class="cart-hidden-container">
           <a href="#"

@@ -10,6 +10,7 @@ var data = [
     comentarios: 2,
     nuevo: true,
     discount: "-$5.00",
+    offerup:"2025-07-13"
   },
   {
     codigo: "02",
@@ -22,6 +23,7 @@ var data = [
     comentarios: 2,
     nuevo: true,
     discount: "-10%",
+    offerup:"2025-10-11"
   },
   {
     codigo: "03",
@@ -34,6 +36,7 @@ var data = [
     comentarios: 1,
     nuevo: true,
     discount: false,
+    offerup:false
   },
   {
     codigo: "04",
@@ -46,6 +49,7 @@ var data = [
     comentarios: 3,
     nuevo: true,
     discount: false,
+    offerup:false
   },
   {
     codigo: "05",
@@ -58,6 +62,7 @@ var data = [
     comentarios: 1,
     nuevo: true,
     discount: "-$5.00",
+    offerup: "2025-03-29"
   },
   {
     codigo: "06",
@@ -70,6 +75,7 @@ var data = [
     comentarios: 1,
     nuevo: true,
     discount: false,
+    offerup: false
   },
   {
     codigo: "07",
@@ -82,6 +88,7 @@ var data = [
     comentarios: 4,
     nuevo: true,
     discount: "-$50.00",
+    offerup: "2025-09-20"
   },
   {
     codigo: "08",
@@ -94,6 +101,7 @@ var data = [
     comentarios: 4,
     nuevo: true,
     discount: "-15%",
+    offerup: "2025-03-17"
   },
   {
     codigo: "09",
@@ -106,6 +114,7 @@ var data = [
     comentarios: 7,
     nuevo: true,
     discount: "-$20.00",
+    offerup: "2025-05-14"
   },
   {
     codigo: "10",
@@ -118,6 +127,7 @@ var data = [
     comentarios: 2,
     nuevo: true,
     discount: false,
+    offerup: false
   },
 ];
 
@@ -133,3 +143,5 @@ dataAOrdenar.sort((a, b) => {
 });
 
 const dataOrdenada = dataAOrdenar;
+
+
