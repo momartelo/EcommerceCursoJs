@@ -283,6 +283,10 @@ body {
   background-color: var(--background-color-e5e5e5);
 }
 
+.wishlist-button-add.favorito{
+  background-color: var(--background-color-ff3a41);
+}
+
 .wishlist-button-add > img {
   background-color: none;
 }
@@ -294,6 +298,7 @@ body {
 .wishlist-button-add > img:hover {
   background-color: var(--background-color-888);
 }
+
 
 .product-flags {
   position: absolute;

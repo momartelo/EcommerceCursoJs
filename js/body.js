@@ -1,3 +1,8 @@
+dataonsale=[]
+datapopular=[]
+dataelectronics=[]
+dataclothes=[]
+
 //----------Funcion para la cantidad de productos que se muestra en las secciones de acuerdo la query-------//
 
 function cambiarCantidad(cant) {
@@ -119,7 +124,7 @@ for (i = 0; i < data.length; i++) {
                 alt=""
               />
             </picture>
-            <button class="wishlist-button-add flex">
+            <button class="wishlist-button-add">
               <img
                 src="./img/corazon-strong.png"
                 alt=""
@@ -127,6 +132,8 @@ for (i = 0; i < data.length; i++) {
               />
             </button>
           </a>`;
+
+          
     if (data[i].discount != false && data[i].nuevo == true) {
       onsaleCad += `
             <ul class="product-flags">
@@ -207,7 +214,7 @@ for (i = 0; i < data.length; i++) {
     }
 
     onsaleCad += `
-           <div class="comments-nb">(${data[i].comentarios})</div>
+            <div class="comments-nb">(${data[i].comentarios})</div>
             </div>
             <div class="tptncountdown flex">
               <div class="countdown-container flex">
@@ -237,9 +244,11 @@ for (i = 0; i < data.length; i++) {
     </article>
   </div>
 `;
+    dataonsale.push(data[i])
     if (controlonsale >= 2) {
       break;
     }
+
   }
 }
 document.getElementById("onsale-products").innerHTML = onsaleCad;
@@ -274,7 +283,7 @@ for (i = 0; i < cantidadDeProductos; i++) {
                         src="${dataOrdenada[i].imagen}"
                         alt=""
                     /></picture>
-                    <button class="wishlist-button-add flex">
+                    <button class="wishlist-button-add">
                       <img
                         src="./img/corazon-strong.png"
                         alt=""
@@ -329,10 +338,10 @@ for (i = 0; i < cantidadDeProductos; i++) {
                 `;
   } else {
     popularCad += `
-                   <div class="product-price">
-                   <span class="price">${dataOrdenada[i].precioFinal}</span>
-                   </div>
-                   `;
+                    <div class="product-price">
+                    <span class="price">${dataOrdenada[i].precioFinal}</span>
+                    </div>
+                    `;
   }
   popularCad += `
                   <div class="product-review">
@@ -381,6 +390,7 @@ for (i = 0; i < cantidadDeProductos; i++) {
             </article>
           </div>
     `;
+  datapopular.push(dataOrdenada[i])
 }
 
 popularCad += `
@@ -499,7 +509,7 @@ for (i = 0; i < data.length; i++) {
     electronicsCad += `
             <div class="product-review">
               <div class="grade-stars stars-responsive flex2">
-           `;
+            `;
     if (data[i].estrellas > 0) {
       for (e = 1; e <= data[i].estrellas; e++) {
         electronicsCad += `<img
@@ -544,7 +554,9 @@ for (i = 0; i < data.length; i++) {
     </div>
 `;
     controlelec += 1;
+    dataelectronics.push(data[i])
   }
+
   if (controlelec == cantidadDeProductos) {
     break;
   }
@@ -689,13 +701,14 @@ for (i = 0; i < data.length; i++) {
             </div>
           </article>
         </div>`;
-
+        dataclothes.push(data[i])
     controlclo += 1;
   }
   if (controlclo == cantidadDeProductos) {
     break;
   }
 }
+
 clothesCad += `</div>
 </div>
 </div>
@@ -816,3 +829,41 @@ var experiencesCad = `
 </div>
 `;
 document.getElementById("experiences").innerHTML = experiencesCad;
+
+
+
+
+
+
+//-------------------Boton Favoritos-----------------------//
+//----va aca porque tiene que cargarse despues del codigo del body----//
+
+const wishlistButtons = document.querySelectorAll('.wishlist-button-add');
+const productsOn = document.querySelectorAll(".product-description")
+
+console.log(wishlistButtons)
+console.log(productsOn[0])
+
+function toggleWishlistButton(button) {
+  const imageElement = button.querySelector("img");
+
+
+
+  if (imageElement.src.includes("corazon-strong.png")){
+    imageElement.src= "./img/corazonRojo3D.png";
+  } else {
+    imageElement.src= "./img/corazon-strong.png";
+  }
+
+
+}
+
+
+
+wishlistButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    toggleWishlistButton(button);
+  });
+});
+
+

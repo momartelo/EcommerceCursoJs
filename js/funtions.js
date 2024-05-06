@@ -152,3 +152,4 @@ const countdownInterval2 = setInterval(() => {
     countdownElement2.innerHTML = "¡El countdown ha terminado!";
   }
 }, 1000); // Actualizar cada segundo
+
