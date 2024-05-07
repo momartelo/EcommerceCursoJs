@@ -1,5 +1,6 @@
 var data = [
   {
+    id: "prod01",
     codigo: "01",
     categoria: "Ropa",
     nombre: "Top Formal de Mujer a Rayas",
@@ -9,11 +10,12 @@ var data = [
     estrellas: 4,
     comentarios: 2,
     nuevo: true,
-    discount: "-$5.00",
-    offerup:"2025-07-13",
-    wish:""
+    discount: false,
+    offerup: "2025-07-13",
+    wish: "",
   },
   {
+    id: "prod02",
     codigo: "02",
     categoria: "Electronica",
     nombre: "Celular Galaxy Note Series",
@@ -24,10 +26,11 @@ var data = [
     comentarios: 2,
     nuevo: true,
     discount: "-10%",
-    offerup:"2025-10-11",
-    wish:""
+    offerup: "2025-10-11",
+    wish: "",
   },
   {
+    id: "prod03",
     codigo: "03",
     categoria: "Accesorios",
     nombre: "Cartera de Diseño Premium",
@@ -38,10 +41,11 @@ var data = [
     comentarios: 1,
     nuevo: true,
     discount: false,
-    offerup:false,
-    wish:""
+    offerup: false,
+    wish: "",
   },
   {
+    id: "prod04",
     codigo: "04",
     categoria: "Electronica",
     nombre: "Monitor con Amplio Angulo de Visión",
@@ -52,10 +56,11 @@ var data = [
     comentarios: 3,
     nuevo: true,
     discount: false,
-    offerup:false,
-    wish:""
+    offerup: false,
+    wish: "",
   },
   {
+    id: "prod05",
     codigo: "05",
     categoria: "Ropa",
     nombre: "Zapatillas Casuales Para Hombres",
@@ -67,9 +72,10 @@ var data = [
     nuevo: true,
     discount: "-$5.00",
     offerup: "2025-03-29",
-    wish:""
+    wish: "",
   },
   {
+    id: "prod06",
     codigo: "06",
     categoria: "Electronica",
     nombre: "Heladera Doble Puerta",
@@ -81,9 +87,10 @@ var data = [
     nuevo: true,
     discount: false,
     offerup: false,
-    wish:""
+    wish: "",
   },
   {
+    id: "prod07",
     codigo: "07",
     categoria: "Electronica",
     nombre: "Celular Samsung Galaxy",
@@ -95,9 +102,10 @@ var data = [
     nuevo: true,
     discount: "-$50.00",
     offerup: "2025-09-20",
-    wish:""
+    wish: "",
   },
   {
+    id: "prod08",
     codigo: "08",
     categoria: "Electronica",
     nombre: "Webster Parlante Bluetooth",
@@ -109,9 +117,10 @@ var data = [
     nuevo: true,
     discount: "-15%",
     offerup: "2025-03-17",
-    wish:""
+    wish: "",
   },
   {
+    id: "prod09",
     codigo: "09",
     categoria: "Electronica",
     nombre: "Microndas con Conveccion",
@@ -123,9 +132,10 @@ var data = [
     nuevo: true,
     discount: "-$20.00",
     offerup: "2025-05-14",
-    wish:""
+    wish: "",
   },
   {
+    id: "prod10",
     codigo: "10",
     categoria: "Ropa",
     nombre: "Pantalon de Algodon para Mujer",
@@ -137,7 +147,7 @@ var data = [
     nuevo: true,
     discount: false,
     offerup: false,
-    wish:""
+    wish: "",
   },
 ];
 
@@ -153,5 +163,3 @@ dataAOrdenar.sort((a, b) => {
 });
 
 const dataOrdenada = dataAOrdenar;
-
-

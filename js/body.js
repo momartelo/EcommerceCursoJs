@@ -1,7 +1,7 @@
-dataonsale=[]
-datapopular=[]
-dataelectronics=[]
-dataclothes=[]
+dataonsale = [];
+datapopular = [];
+dataelectronics = [];
+dataclothes = [];
 
 //----------Funcion para la cantidad de productos que se muestra en las secciones de acuerdo la query-------//
 
@@ -113,11 +113,11 @@ controlonsale = 0;
 for (i = 0; i < data.length; i++) {
   if (data[i].discount != false) {
     controlonsale += 1;
-    onsaleCad += `  <div class="product">
+    onsaleCad += `  <div class="product ${data[i].id}">
     <article class="product-miniature">
       <div class="thumbnail-container">
         <div class="thumbnail-top">
-          <a href="#">
+          <a href="#" onclick="event.preventDefault();">
             <picture>
               <img
                 src="${data[i].imagen}"
@@ -133,7 +133,6 @@ for (i = 0; i < data.length; i++) {
             </button>
           </a>`;
 
-          
     if (data[i].discount != false && data[i].nuevo == true) {
       onsaleCad += `
             <ul class="product-flags">
@@ -226,7 +225,9 @@ for (i = 0; i < data.length; i++) {
                     height="24px"
                   />
                 </div>
-                <div id="countdown${[i]}" class="countdown-time flex">
+                <div id="countdown${[
+                  controlonsale - 1,
+                ]}" class="countdown-time flex">
                 </div>
               </div>
             </div>
@@ -244,11 +245,10 @@ for (i = 0; i < data.length; i++) {
     </article>
   </div>
 `;
-    dataonsale.push(data[i])
+    dataonsale.push(data[i]);
     if (controlonsale >= 2) {
       break;
     }
-
   }
 }
 document.getElementById("onsale-products").innerHTML = onsaleCad;
@@ -277,7 +277,7 @@ for (i = 0; i < cantidadDeProductos; i++) {
             <article class="article-product">
               <div class="thumbnail-container-product">
                 <div class="thumbnail-top-product">
-                  <a href="#">
+                  <a href="#" onclick="event.preventDefault();">
                     <picture>
                       <img
                         src="${dataOrdenada[i].imagen}"
@@ -390,7 +390,7 @@ for (i = 0; i < cantidadDeProductos; i++) {
             </article>
           </div>
     `;
-  datapopular.push(dataOrdenada[i])
+  datapopular.push(dataOrdenada[i]);
 }
 
 popularCad += `
@@ -446,7 +446,7 @@ for (i = 0; i < data.length; i++) {
       <article class="article-product">
         <div class="thumbnail-container-product">
           <div class="thumbnail-top-product">
-            <a href="#">
+            <a href="#" onclick="event.preventDefault();">
               <picture>
                 <img
                   src="${data[i].imagen}"
@@ -554,7 +554,7 @@ for (i = 0; i < data.length; i++) {
     </div>
 `;
     controlelec += 1;
-    dataelectronics.push(data[i])
+    dataelectronics.push(data[i]);
   }
 
   if (controlelec == cantidadDeProductos) {
@@ -595,7 +595,7 @@ for (i = 0; i < data.length; i++) {
     <article class="article-product">
       <div class="thumbnail-container-product">
         <div class="thumbnail-top-product">
-          <a href="#">
+          <a href="#" onclick="event.preventDefault();">
             <picture>
               <img
                 src="${data[i].imagen}"
@@ -701,7 +701,7 @@ for (i = 0; i < data.length; i++) {
             </div>
           </article>
         </div>`;
-        dataclothes.push(data[i])
+    dataclothes.push(data[i]);
     controlclo += 1;
   }
   if (controlclo == cantidadDeProductos) {
@@ -830,40 +830,132 @@ var experiencesCad = `
 `;
 document.getElementById("experiences").innerHTML = experiencesCad;
 
+// let wishlistItems = [];
 
+// //-------------------Boton Favoritos-----------------------//
+// //----va aca porque tiene que cargarse despues del codigo del body----//
 
+// const wishlistButtons = document.querySelectorAll(".wishlist-button-add");
+// const productsOn = document.querySelectorAll(".product-description");
 
+// console.log(wishlistButtons);
 
+// productsOn.forEach(product => {
+//   const productName = product.querySelector("h3 a");
+//   if (productName){
+//   console.log(productName.textContent.trim());
+//   } else {
+//     console.log("No se encontro");
+//   }
+// });
 
-//-------------------Boton Favoritos-----------------------//
-//----va aca porque tiene que cargarse despues del codigo del body----//
+// // function toggleWishlistButton(button) {
+// //   const imageElement = button.querySelector("img");
 
-const wishlistButtons = document.querySelectorAll('.wishlist-button-add');
-const productsOn = document.querySelectorAll(".product-description")
+// //   if (imageElement.src.includes("corazon-strong.png")) {
+// //     imageElement.src = "./img/corazonRojo3D.png";
+// //   } else {
+// //     imageElement.src = "./img/corazon-strong.png";
+// //   }
+// // }
 
-console.log(wishlistButtons)
-console.log(productsOn[0])
+// function toggleWishlistButton(button, productId, productName) {
+//   const imageElement = button.querySelector("img");
 
-function toggleWishlistButton(button) {
-  const imageElement = button.querySelector("img");
+//   // Verifica si el producto ya está en la lista de deseos
+//   const index = wishlistItems.findIndex(item => item.productId === productId);
 
+//   if (imageElement.src.includes("corazon-strong.png")) {
+//     // Si el producto no está en la lista de deseos, agrégalo
+//     if (index === -1) {
+//       wishlistItems.push({ productId, productName });
+//     }
+//     imageElement.src = "./img/corazonRojo3D.png";
+//   } else {
+//     // Si el producto está en la lista de deseos, quítalo
+//     if (index !== -1) {
+//       wishlistItems.splice(index, 1);
+//     }
+//     imageElement.src = "./img/corazon-strong.png";
+//   }
 
+//   // Muestra el contenido actual de la lista de deseos en la consola
+//   console.log("Lista de deseos actual:", wishlistItems);
+// }
 
-  if (imageElement.src.includes("corazon-strong.png")){
-    imageElement.src= "./img/corazonRojo3D.png";
+// wishlistButtons.forEach((button) => {
+//   console.log(button.parentElement.parentElement.parentElement);
+//   console.log(button.parentElement.nextElementSibling);
+//   console.log(button.parentElement.nextElementSibling.querySelector("h3 a"));
+//   // const productId = button.parentElement.parentElement.parentElement.classList[1];
+//   // const productName = button.parentElement.nextElementSibling.querySelector("h3 a").textContent.trim();
+
+//   button.addEventListener("click", () => {
+//     toggleWishlistButton(button, productId, productName);
+//   });
+// });
+
+// // wishlistButtons.forEach((button) => {
+// //   button.addEventListener("click", () => {
+// //     toggleWishlistButton(button);
+// //   });
+// // });
+
+const wishlistButtons = document.querySelectorAll(".wishlist-button-add");
+console.log(wishlistButtons);
+const productsOn = document.querySelectorAll(".product-description");
+const wishlistItems = []; // Array para almacenar los productos de la lista de deseos
+
+// Función para mostrar el nombre del producto en la consola
+productsOn.forEach((product) => {
+  const productName = product.querySelector("h3 a");
+  if (productName) {
+    console.log(productName.textContent.trim());
   } else {
-    imageElement.src= "./img/corazon-strong.png";
+    console.log("No se encontró");
   }
-
-
-}
-
-
-
-wishlistButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    toggleWishlistButton(button);
-  });
 });
 
+// Función para alternar el estado del botón de lista de deseos y gestionar la lista de deseos
+function toggleWishlistButton(button, productId, productName) {
+  const imageElement = button.querySelector("img");
 
+  // Verifica si el producto ya está en la lista de deseos
+  const index = wishlistItems.findIndex((item) => item.productId === productId);
+
+  if (imageElement.src.includes("corazon-strong.png")) {
+    // Si el producto no está en la lista de deseos, agrégalo
+    if (index === -1) {
+      wishlistItems.push({ productId, productName });
+    }
+    imageElement.src = "./img/corazonRojo3D.png";
+  } else {
+    // Si el producto está en la lista de deseos, quítalo
+    if (index !== -1) {
+      wishlistItems.splice(index, 1);
+    }
+    imageElement.src = "./img/corazon-strong.png";
+  }
+
+  // Muestra el contenido actual de la lista de deseos en la consola
+  console.log("Lista de deseos actual:", wishlistItems);
+}
+
+// Itera sobre los botones de lista de deseos y agrega un event listener a cada uno
+wishlistButtons.forEach((button) => {
+  const productContainer = button.closest(".product");
+  if (productContainer) {
+    const productId = productContainer.classList[1];
+    const productName = productContainer
+      .querySelector("h3 a")
+      .textContent.trim();
+
+    button.addEventListener("click", () => {
+      toggleWishlistButton(button, productId, productName);
+    });
+  } else {
+    console.error(
+      "No se encontró el contenedor del producto para el botón de la lista de deseos."
+    );
+  }
+});
