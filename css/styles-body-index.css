@@ -724,20 +724,21 @@ body {
 }
 
 @media (min-width: 769px) and (max-width: 1320px) {
-  .onsale-products-title > h4 {
+  .onsale-products-title > h4, .popular-products-title > h4 {
     font-size: 20px;
     margin: 0;
   }
 
-  .onsale-products-title {
+  .onsale-products-title, .popular-products-title {
     border-bottom: 2px solid #e5e5e5;
     margin: 0 0 15px;
-    padding: 0 0 10px;
+    padding: 0 0 5px;
   }
 
   .thumbnail-container {
     padding: 10px;
   }
+
 }
 
 @media (min-width: 481px) and (max-width: 768px) {

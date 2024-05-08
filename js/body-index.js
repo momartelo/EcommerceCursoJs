@@ -274,7 +274,7 @@ var popularCad = `
 `;
 for (i = 0; i < cantidadDeProductos; i++) {
   popularCad += `   <div class="popular-products-product pr1">
-            <article class="article-product">
+            <article class="article-product caca">
               <div class="thumbnail-container-product">
                 <div class="thumbnail-top-product">
                   <a href="#" onclick="event.preventDefault();">
@@ -830,132 +830,51 @@ var experiencesCad = `
 `;
 document.getElementById("experiences").innerHTML = experiencesCad;
 
-// let wishlistItems = [];
 
-// //-------------------Boton Favoritos-----------------------//
-// //----va aca porque tiene que cargarse despues del codigo del body----//
 
-// const wishlistButtons = document.querySelectorAll(".wishlist-button-add");
-// const productsOn = document.querySelectorAll(".product-description");
 
-// console.log(wishlistButtons);
-
-// productsOn.forEach(product => {
-//   const productName = product.querySelector("h3 a");
-//   if (productName){
-//   console.log(productName.textContent.trim());
-//   } else {
-//     console.log("No se encontro");
-//   }
-// });
-
-// // function toggleWishlistButton(button) {
-// //   const imageElement = button.querySelector("img");
-
-// //   if (imageElement.src.includes("corazon-strong.png")) {
-// //     imageElement.src = "./img/corazonRojo3D.png";
-// //   } else {
-// //     imageElement.src = "./img/corazon-strong.png";
-// //   }
-// // }
-
-// function toggleWishlistButton(button, productId, productName) {
-//   const imageElement = button.querySelector("img");
-
-//   // Verifica si el producto ya está en la lista de deseos
-//   const index = wishlistItems.findIndex(item => item.productId === productId);
-
-//   if (imageElement.src.includes("corazon-strong.png")) {
-//     // Si el producto no está en la lista de deseos, agrégalo
-//     if (index === -1) {
-//       wishlistItems.push({ productId, productName });
-//     }
-//     imageElement.src = "./img/corazonRojo3D.png";
-//   } else {
-//     // Si el producto está en la lista de deseos, quítalo
-//     if (index !== -1) {
-//       wishlistItems.splice(index, 1);
-//     }
-//     imageElement.src = "./img/corazon-strong.png";
-//   }
-
-//   // Muestra el contenido actual de la lista de deseos en la consola
-//   console.log("Lista de deseos actual:", wishlistItems);
-// }
-
-// wishlistButtons.forEach((button) => {
-//   console.log(button.parentElement.parentElement.parentElement);
-//   console.log(button.parentElement.nextElementSibling);
-//   console.log(button.parentElement.nextElementSibling.querySelector("h3 a"));
-//   // const productId = button.parentElement.parentElement.parentElement.classList[1];
-//   // const productName = button.parentElement.nextElementSibling.querySelector("h3 a").textContent.trim();
-
-//   button.addEventListener("click", () => {
-//     toggleWishlistButton(button, productId, productName);
-//   });
-// });
-
-// // wishlistButtons.forEach((button) => {
-// //   button.addEventListener("click", () => {
-// //     toggleWishlistButton(button);
-// //   });
-// // });
 
 const wishlistButtons = document.querySelectorAll(".wishlist-button-add");
-console.log(wishlistButtons);
-const productsOn = document.querySelectorAll(".product-description");
-const wishlistItems = []; // Array para almacenar los productos de la lista de deseos
+var wishlistItems = [];
+var productoID = ""
 
-// Función para mostrar el nombre del producto en la consola
-productsOn.forEach((product) => {
-  const productName = product.querySelector("h3 a");
-  if (productName) {
-    console.log(productName.textContent.trim());
-  } else {
-    console.log("No se encontró");
-  }
-});
-
-// Función para alternar el estado del botón de lista de deseos y gestionar la lista de deseos
-function toggleWishlistButton(button, productId, productName) {
+function toggleWishlistButton(button) {
   const imageElement = button.querySelector("img");
+  const contenedorProducto = button.closest(".article-product") || button.closest(".product-miniature");
+  console.log(contenedorProducto)
 
-  // Verifica si el producto ya está en la lista de deseos
-  const index = wishlistItems.findIndex((item) => item.productId === productId);
-
-  if (imageElement.src.includes("corazon-strong.png")) {
-    // Si el producto no está en la lista de deseos, agrégalo
-    if (index === -1) {
-      wishlistItems.push({ productId, productName });
+  if (contenedorProducto) {
+    // const idProducto = contenedorProducto.classList[1];
+    const nombreProducto = contenedorProducto.querySelector("h3 a").textContent.trim();
+    for (var i=0; i<=data.length; i++){
+      if (nombreProducto == data[i].nombre) {
+        productoID=data[i].id;
+        break
+      }
     }
-    imageElement.src = "./img/corazonRojo3D.png";
+
+    const productoExistente = wishlistItems.find(item => item.productId === productoID);
+
+    if(imageElement.src.includes("corazon-strong.png")){
+      if (!productoExistente) {
+        wishlistItems.push({productId: productoID, productName: nombreProducto});
+        imageElement.src = "./img/corazonRojo3D.png";
+      }
+    } else {
+      if (productoExistente) {
+        wishlistItems = wishlistItems.filter(item => item.productId !== productoID);
+        imageElement.src = "./img/corazon-strong.png";
+      }
+    }
   } else {
-    // Si el producto está en la lista de deseos, quítalo
-    if (index !== -1) {
-      wishlistItems.splice(index, 1);
-    }
-    imageElement.src = "./img/corazon-strong.png";
+    console.error("Contenedor del producto no encontrado para el boton de la lista de desos")
   }
-
-  // Muestra el contenido actual de la lista de deseos en la consola
-  console.log("Lista de deseos actual:", wishlistItems);
 }
 
-// Itera sobre los botones de lista de deseos y agrega un event listener a cada uno
-wishlistButtons.forEach((button) => {
-  const productContainer = button.closest(".product");
-  if (productContainer) {
-    const productId = productContainer.classList[1];
-    const productName = productContainer
-      .querySelector("h3 a")
-      .textContent.trim();
-
-    button.addEventListener("click", () => {
-      toggleWishlistButton(button, productId, productName);
-    });
-  } else {
-    console.error(
-      "No se encontró el contenedor del producto para el botón de la lista de deseos."
-    );
-  }
+wishlistButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    event.preventDefault();
+    toggleWishlistButton(button);
+    console.log(wishlistItems)
+  });
 });
