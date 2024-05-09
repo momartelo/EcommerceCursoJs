@@ -844,11 +844,13 @@ function toggleWishlistButton(button) {
   console.log(contenedorProducto)
 
   if (contenedorProducto) {
-    // const idProducto = contenedorProducto.classList[1];
     const nombreProducto = contenedorProducto.querySelector("h3 a").textContent.trim();
+    const rutaAbsoluta = contenedorProducto.querySelector("picture img").src.trim();
+    const precioProducto = contenedorProducto.querySelector("div .price").textContent.trim();
+    const imagePath = rutaAbsoluta.replace(/^http:\/\/[^\/]+(:[0-9]+)?/, '.');
     for (var i=0; i<=data.length; i++){
       if (nombreProducto == data[i].nombre) {
-        productoID=data[i].id;
+        productoID = data[i].id;
         break
       }
     }
@@ -857,7 +859,7 @@ function toggleWishlistButton(button) {
 
     if(imageElement.src.includes("corazon-strong.png")){
       if (!productoExistente) {
-        wishlistItems.push({productId: productoID, productName: nombreProducto});
+        wishlistItems.push({productId: productoID, image: imagePath ,productName: nombreProducto, prize: precioProducto});
         imageElement.src = "./img/corazonRojo3D.png";
       }
     } else {
@@ -876,5 +878,11 @@ wishlistButtons.forEach(button => {
     event.preventDefault();
     toggleWishlistButton(button);
     console.log(wishlistItems)
+    var wishlistItemsJSON = JSON.stringify(wishlistItems)
+    console.log(wishlistItemsJSON)
+    localStorage.setItem('wishlist', wishlistItemsJSON);
   });
 });
+
+
+

@@ -432,7 +432,7 @@ var headerCad= `
       <li class="i-header-nav"><a href="#">Inicio</a></li>
       <li class="np-header-nav"><a href="#">Marcas</a></li>
       <li class="m-header-nav"><a href="#">Vender</a></li>
-      <li class="v-header-nav"><a href="#">Lista de Deseos</a></li>
+      <li class="v-header-nav"><a href="wishlist.html">Lista de Deseos</a></li>
       <li class="s-header-nav"><a href="#">Sucursales</a></li>
       <li class="n-header-nav"><a href="#">Nosotros</a></li>
       <li class="c-header-nav"><a href="#">Contacto</a></li>
