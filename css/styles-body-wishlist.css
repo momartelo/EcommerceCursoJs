@@ -88,7 +88,25 @@ body {
   padding-right: var(--margin-15px);
 }
 
-.body-content-wrapper {
-  padding-left: var(--margin-15px);
-  padding-right: var(--margin-15px);
+.wishlist-wrapper {
+  flex-direction: column;
+}
+
+.wishlist-products {
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.wishlist-container {
+  width: 25%;
+}
+
+.article-product {
+  flex-direction: column;
+}
+
+.wishlist-container2 {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
 }

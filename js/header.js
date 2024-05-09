@@ -1,4 +1,4 @@
-var headerCad= `
+var headerCad = `
 <div class="header-top">
 <div class="container-top flex">
   <div class="text">Holiday Sale on Clothing at 20% discount</div>
@@ -429,7 +429,7 @@ var headerCad= `
   </div>
   <div class="header-nav-links">
     <ul>
-      <li class="i-header-nav"><a href="#">Inicio</a></li>
+      <li class="i-header-nav"><a href="index.html">Inicio</a></li>
       <li class="np-header-nav"><a href="#">Marcas</a></li>
       <li class="m-header-nav"><a href="#">Vender</a></li>
       <li class="v-header-nav"><a href="wishlist.html">Lista de Deseos</a></li>
@@ -447,7 +447,7 @@ var headerCad= `
         <div class="links-hidden-nav-responsive-container">
           <ul>
             <li class="i-header-nav-responsive">
-              <a href="#">Inicio</a>
+              <a href="index.html">Inicio</a>
             </li>
             <li class="np-header-nav-responsive">
               <a href="#">Marcas</a>
@@ -456,7 +456,7 @@ var headerCad= `
               <a href="#">Vender</a>
             </li>
             <li class="v-header-nav-responsive">
-              <a href="#">Lista de Deseos</a>
+              <a href="wishlist.html">Lista de Deseos</a>
             </li>
             <li class="s-header-nav-responsive">
               <a href="#">Sucursales</a>
@@ -484,6 +484,6 @@ var headerCad= `
   </div>
 </div>
 </div>
-`
+`;
 
-document.getElementById("header").innerHTML=headerCad
+document.getElementById("header").innerHTML = headerCad;
