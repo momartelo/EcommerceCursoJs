@@ -830,59 +830,97 @@ var experiencesCad = `
 `;
 document.getElementById("experiences").innerHTML = experiencesCad;
 
-
-
-
-
 const wishlistButtons = document.querySelectorAll(".wishlist-button-add");
 var wishlistItems = [];
-var productoID = ""
+var productoID = "";
 
 function toggleWishlistButton(button) {
   const imageElement = button.querySelector("img");
-  const contenedorProducto = button.closest(".article-product") || button.closest(".product-miniature");
-  console.log(contenedorProducto)
+  const contenedorProducto =
+    button.closest(".article-product") || button.closest(".product-miniature");
 
   if (contenedorProducto) {
-    const nombreProducto = contenedorProducto.querySelector("h3 a").textContent.trim();
-    const rutaAbsoluta = contenedorProducto.querySelector("picture img").src.trim();
-    const precioProducto = contenedorProducto.querySelector("div .price").textContent.trim();
-    const imagePath = rutaAbsoluta.replace(/^http:\/\/[^\/]+(:[0-9]+)?/, '.');
-    for (var i=0; i<=data.length; i++){
+    const nombreProducto = contenedorProducto
+      .querySelector("h3 a")
+      .textContent.trim();
+    const rutaAbsoluta = contenedorProducto
+      .querySelector("picture img")
+      .src.trim();
+    const precioProducto = contenedorProducto
+      .querySelector("div .price")
+      .textContent.trim();
+    const imagePath = rutaAbsoluta.replace(/^http:\/\/[^\/]+(:[0-9]+)?/, ".");
+    for (var i = 0; i <= data.length; i++) {
       if (nombreProducto == data[i].nombre) {
         productoID = data[i].id;
-        break
+        break;
       }
     }
 
-    const productoExistente = wishlistItems.find(item => item.productId === productoID);
+    const productoExistente = wishlistItems.find(
+      (item) => item.productId === productoID
+    );
 
-    if(imageElement.src.includes("corazon-strong.png")){
+    if (imageElement.src.includes("corazon-strong.png")) {
       if (!productoExistente) {
-        wishlistItems.push({productId: productoID, image: imagePath ,productName: nombreProducto, prize: precioProducto});
+        wishlistItems.push({
+          productId: productoID,
+          image: imagePath,
+          productName: nombreProducto,
+          prize: precioProducto,
+        });
         imageElement.src = "./img/corazonRojo3D.png";
       }
     } else {
       if (productoExistente) {
-        wishlistItems = wishlistItems.filter(item => item.productId !== productoID);
+        wishlistItems = wishlistItems.filter(
+          (item) => item.productId !== productoID
+        );
         imageElement.src = "./img/corazon-strong.png";
       }
     }
   } else {
-    console.error("Contenedor del producto no encontrado para el boton de la lista de desos")
+    console.error(
+      "Contenedor del producto no encontrado para el boton de la lista de desos"
+    );
   }
 }
 
-wishlistButtons.forEach(button => {
+function loadWishlistItems() {
+  const wishlistItemsJSON = localStorage.getItem("wishlist");
+ 
+  if (wishlistItemsJSON) {
+    wishlistItems = JSON.parse(wishlistItemsJSON);
+
+    wishlistButtons.forEach((button) => {
+      const imageElement = button.querySelector("img");
+      const contenedorProducto =
+        button.closest(".article-product") ||
+        button.closest(".product-miniature");
+      if (contenedorProducto) {
+        const nombreProducto = contenedorProducto
+          .querySelector("h3 a")
+          .textContent.trim();
+        const productoExistente = wishlistItems.find(
+          (item) => item.productName === nombreProducto
+        );
+        if (productoExistente) {
+          imageElement.src = "./img/corazonRojo3D.png";
+        } else {
+          imageElement.src = "./img/corazon-strong.png";
+        }
+      }
+    });
+  }
+}
+
+loadWishlistItems();
+
+wishlistButtons.forEach((button) => {
   button.addEventListener("click", () => {
     event.preventDefault();
     toggleWishlistButton(button);
-    console.log(wishlistItems)
-    var wishlistItemsJSON = JSON.stringify(wishlistItems)
-    console.log(wishlistItemsJSON)
-    localStorage.setItem('wishlist', wishlistItemsJSON);
+    var wishlistItemsJSON = JSON.stringify(wishlistItems);
+    localStorage.setItem("wishlist", wishlistItemsJSON);
   });
 });
-
-
-

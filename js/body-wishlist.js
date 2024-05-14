@@ -2,7 +2,7 @@ const wishlistSave = localStorage.getItem("wishlist");
 
 const wishlistItems = wishlistSave ? JSON.parse(wishlistSave) : [];
 
-console.log(wishlistItems);
+
 
 var total = 0;
 
@@ -116,23 +116,22 @@ document.getElementById("vaciarLista").addEventListener("click", function () {
 //-------------------------------------------------------------------------//
 
 const wishlistButtons = document.querySelectorAll(".wishlist-button-add");
-console.log(wishlistButtons);
+
 
 function toggleWishlistButton(elemento) {
-  console.log(elemento);
+
   const imageElement = elemento.querySelector("img");
   const contenedorProducto = elemento.closest(".wishlist-container");
   const nombreProducto = contenedorProducto
     .querySelector("div span")
     .textContent.trim();
-  console.log(nombreProducto);
+
 
   let productoID = null;
 
   for (var i = 0; i < data.length; i++) {
     if (nombreProducto === data[i].nombre) {
       productoID = data[i].id;
-      console.log(productoID);
       break;
     }
   }
@@ -143,9 +142,7 @@ function toggleWishlistButton(elemento) {
   }
 
   const productIdToDelete = productoID;
-  console.log("codigo de producto " + productIdToDelete);
   let wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
-  console.log("wishlist" + wishlistItems);
 
   if (wishlistItems) {
     wishlistItems = wishlistItems.filter(

@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:wght@100..900&family=Rochester&family=Rouge+Script&display=swap");
+
+:root {
+  --text-color: #111;
+  --text-bar-color: #fff;
+  --text-submenu-color: #777;
+  --text-color-105bd5: #105bd5;
+
+  --background-color-e5e5e5: #e5e5e5;
+  --background-color-888: #888;
+  --background-color-999: #999;
+  --background-color: #fff;
+  --background-header-color: #364f6b;
+  --background-color-ff3a41: #ff3a41;
+  --background2-header-color: #ed1d24;
+  --background3-color: #2ac97a;
+  --background4-color-105bd5: #105bd5;
+  --background-footer-color: #eee;
+  --background-hover-color: rgb(201, 201, 201);
+  --background-primary-color: #0d6efd;
+  --background-secundary-color: #6c757d;
+  --background-success-color: #198754;
+  --background-danger-color: #dc3545;
+  --background-warning-color: #ffc107;
+  --background-info-color: #0dcaf0;
+
+  --body-font: "Inter", sans-serif;
+  --experiencias-font: "Rochester", cursive;
+
+  --normal-font-size-0875: 0.875rem;
+  --menu-font-size-1: 1rem;
+  --menu-font-size-1125: 1.125rem;
+  --menu2-font-size-13: 1.25rem;
+  --menu-font-size-1375: 1.375rem;
+  --menu3-font-size-15: 1.5rem;
+  --query-font-size-075: 0.75rem;
+  --query-font-size-0625: 0.625rem;
+  --submenu-font-size-06875: 0.6875rem;
+
+  --body-lineheight: 1.5;
+  --body-lineheight-13: 1.3;
+  --body-lineheight-11: 1.1;
+
+  --normal-border: 1px solid #eee;
+  --form-border: 2px solid #ddd;
+  --normal-border-2-ed1d24: 2px solid #ed1d24;
+
+  --weight-500: 500;
+  --weight-600: 600;
+
+  --margin-5px: 0.313rem;
+  --margin-10px: 0.625rem;
+  --margin-12px: 0.75rem;
+  --margin-14px: 0.875rem;
+  --margin-15px: 0.938rem;
+  --margin-16px: 1rem;
+  --margin-20px: 1.25rem;
+  --margin-25px: 1.563rem;
+  --margin-30px: 1.875rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size-0875);
+  line-height: var(--body-lineheight);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.section-wrapper {
+  padding: 1.875rem 0;
+  width: 100%;
+  max-width: 1320px;
+}
+
+.body-container {
+  margin-left: auto;
+  margin-right: auto;
+  /* padding-left: var(--margin-15px);
+    padding-right: var(--margin-15px); */
+}
+
+.item-menu-container {
+  grid-area: menu;
+}
+.item-main1 {
+  grid-area: main;
+}
+.item-main2 {
+  grid-area: main2;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "menu main main2"
+    "menu main main2";
+  grid-template-columns: 1fr 2fr 2fr;
+  gap: 10px;
+  /* padding: 10px; */
+  width: 100%;
+  max-width: 1320px;
+}
+
+.item-menu-container {
+  border-radius: var(--margin-10px);
+  background-color: var(--background-header-color);
+  flex-direction: column;
+}
+
+.infoPersonal {
+  flex-direction: column;
+  align-items: center;
+  padding: var(--margin-30px);
+  padding-bottom: var(--margin-10px);
+  border-bottom: var(--normal-border);
+}
+
+.infoPersonal > img {
+  border-radius: 50%;
+  width: 100px;
+}
+
+.infoPersonal > h4 {
+  margin-top: var(--margin-15px);
+  color: var(--text-bar-color);
+}
+
+.infoPersonal > a {
+  margin-top: var(--margin-5px);
+  font-size: var(--query-font-size-075);
+  color: var(--text-bar-color);
+}
+
+.menuPrincipal > ul,
+.menuDetalles > ul,
+.menuSoporte > ul {
+  list-style-type: none;
+}
+
+.menuPrincipal > h4,
+.menuDetalles > h4,
+.menuSoporte > h4 {
+  padding-left: var(--margin-10px);
+  margin-top: var(--margin-10px);
+  color: var(--text-bar-color);
+}
+
+.menuPrincipal > ul > li > a,
+.menuDetalles > ul > li > a,
+.menuSoporte > ul > li > a {
+  flex-direction: row;
+  padding: var(--margin-10px);
+  text-decoration: none;
+}
+
+.menuPrincipal > ul > li > a > img,
+.menuDetalles > ul > li > a > img,
+.menuSoporte > ul > li > a > img {
+  width: 24px;
+}
+
+.menuPrincipal > ul > li > a > p,
+.menuDetalles > ul > li > a > p,
+.menuSoporte > ul > li > a > p {
+  padding-left: var(--margin-10px);
+  color: var(--text-bar-color);
+}
