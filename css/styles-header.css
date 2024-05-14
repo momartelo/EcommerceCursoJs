@@ -6,7 +6,8 @@
   --text-submenu-color: #777;
   --background-color: #fff;
   --background-header-color: #364f6b;
-  --background2-header-color: #ed1d24;
+  --background3-header-color: #ed1d24;
+  --background2-header-color: #fc4100;
   --background-hover-color: rgb(201, 201, 201);
 
   --body-font: "Inter", sans-serif;
@@ -158,11 +159,22 @@ i {
 }
 
 .login-toogle {
-  border: var(--normal-border);
   border-radius: 0.3rem;
-  padding: 0 0.9rem;
-  line-height: 40px;
+  padding: 0.3rem 0.9rem;
   cursor: pointer;
+}
+
+.login-toogle:hover {
+  border: var(--normal-border);
+}
+
+.login-toogle>a {
+  text-decoration: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 5px;
 }
 
 .header-bottom {
@@ -394,7 +406,7 @@ li[data-depth="0"] {
   }
 
   .login-toogle {
-    padding: 0 0.3rem;
+    padding: 0.6rem 0.6rem;
     text-align: center;
     cursor: pointer;
   }
@@ -496,7 +508,7 @@ li[data-depth="0"] {
   }
 
   .login-toogle {
-    padding: 0 0.3rem;
+    padding: 0.3rem 0.3rem;
     text-align: center;
     cursor: pointer;
   }
@@ -633,7 +645,7 @@ li[data-depth="0"] {
   }
 
   .login-toogle {
-    padding: 0 0.3rem;
+    padding: 0.3rem 0.3rem;
     text-align: center;
     cursor: pointer;
     vertical-align: middle;

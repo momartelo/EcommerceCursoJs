@@ -47,8 +47,10 @@ var headerCad = `
   <div class="account">
     <div class="login-register">
       <div class="login-toogle">
+        <a class="flex" href="count.html">
         <i class="fas fa-user"></i>
         <span class="login-toogle-text">Mi Cuenta</span>
+        </a>
       </div>
     </div>
   </div>
