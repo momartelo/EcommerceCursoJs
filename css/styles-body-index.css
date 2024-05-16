@@ -12,7 +12,8 @@
   --background-color: #fff;
   --background-header-color: #364f6b;
   --background-color-ff3a41: #ff3a41;
-  --background2-header-color: #ed1d24;
+  /* --background3-header-color: #ed1d24; */
+  --background2-header-color: #fc4100;
   --background3-color: #2ac97a;
   --background4-color-105bd5: #105bd5;
   --background-footer-color: #eee;
@@ -283,7 +284,7 @@ body {
   background-color: var(--background-color-e5e5e5);
 }
 
-.wishlist-button-add.favorito{
+.wishlist-button-add.favorito {
   background-color: var(--background-color-ff3a41);
 }
 
@@ -298,7 +299,6 @@ body {
 .wishlist-button-add > img:hover {
   background-color: var(--background-color-888);
 }
-
 
 .product-flags {
   position: absolute;
@@ -724,12 +724,14 @@ body {
 }
 
 @media (min-width: 769px) and (max-width: 1320px) {
-  .onsale-products-title > h4, .popular-products-title > h4 {
+  .onsale-products-title > h4,
+  .popular-products-title > h4 {
     font-size: 20px;
     margin: 0;
   }
 
-  .onsale-products-title, .popular-products-title {
+  .onsale-products-title,
+  .popular-products-title {
     border-bottom: 2px solid #e5e5e5;
     margin: 0 0 15px;
     padding: 0 0 5px;
@@ -738,7 +740,6 @@ body {
   .thumbnail-container {
     padding: 10px;
   }
-
 }
 
 @media (min-width: 481px) and (max-width: 768px) {

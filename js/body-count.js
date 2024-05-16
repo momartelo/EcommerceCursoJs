@@ -21,7 +21,7 @@ var countCad = `
                     </li>
                     <li>
                         <a href="#" class="flex">
-                        <img src="./img/carrito-de-compras5.png" alt=""/>
+                        <img src="./img/carro-de-la-compra-negro.png" alt=""/>
                         <p>Pedidos</p>
                         </a>
                     </li>
@@ -39,13 +39,13 @@ var countCad = `
                 <ul>
                     <li>
                         <a href="#" class="flex">
-                        <img src="./img/editar.png" alt=""/>
+                        <img src="./img/editar1-negro.png" alt=""/>
                         <p>Editar Cuenta</p>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex">
-                        <img src="./img/alfiler.png" alt=""/>
+                        <img src="./img/ubicacion-negro.png" alt=""/>
                         <p>Editar Direcciones</p>
                         </a>
                     </li>
@@ -63,7 +63,7 @@ var countCad = `
                 <ul>
                     <li>
                         <a href="#" class="flex">
-                        <img src="./img/comunicar.png" alt=""/>
+                        <img src="./img/contacto-negro.png" alt=""/>
                         <p>Contacto</p>
                         </a>
                     </li>
@@ -78,7 +78,7 @@ var countCad = `
                 <li class="main-card">
                     <div class="container-card flex">
                         <div class="card-logo">
-                            <img src="./img/carro-de-la-compra-azul.png" alt=""/>
+                            <img src="./img/carrito-de-compras-naranja.png" alt=""/>
                         </div>
                         <div class="card-text flex">
                             <div class="card-title">
@@ -91,7 +91,7 @@ var countCad = `
                     </div>
                     <div class="card-icon">
                         <a href="#" class="flex">
-                            <img src="./img/siguiente-boton.png" alt=""/>
+                            <img src="./img/flecha-correcta.png" alt=""/>
                         </a>
                     </div>
                 </li>
@@ -99,7 +99,7 @@ var countCad = `
                 <li class="main-card">
                     <div class="container-card flex">
                         <div class="card-logo">
-                            <img src="./img/flecha-hacia-abajo-azul.png" alt=""/>
+                            <img src="./img/descargar1-naranja.png" alt=""/>
                         </div>
                         <div class="card-text flex">
                             <div class="card-title">
@@ -112,7 +112,7 @@ var countCad = `
                     </div>
                     <div class="card-icon">
                         <a href="#" class="flex">
-                            <img src="./img/siguiente-boton.png" alt=""/>
+                            <img src="./img/flecha-correcta.png" alt=""/>
                         </a>
                     </div>
                 </li>
@@ -120,7 +120,7 @@ var countCad = `
                 <li class="main-card">
                     <div class="container-card flex">
                         <div class="card-logo">
-                            <img src="./img/editar-azul.png" alt=""/>
+                            <img src="./img/editar-informacion-naranja.png" alt=""/>
                         </div>
                         <div class="card-text flex">
                             <div class="card-title">
@@ -133,7 +133,7 @@ var countCad = `
                     </div>
                     <div class="card-icon">
                         <a href="#" class="flex">
-                            <img src="./img/siguiente-boton.png" alt=""/>
+                            <img src="./img/flecha-correcta.png" alt=""/>
                         </a>
                     </div>
                 </li>
@@ -141,7 +141,7 @@ var countCad = `
                 <li class="main-card">
                     <div class="container-card flex">
                         <div class="card-logo">
-                            <img src="./img/ubicacion-color.png" alt=""/>
+                            <img src="./img/ubicacion-naranja.png" alt=""/>
                         </div>
                         <div class="card-text flex">
                             <div class="card-title">
@@ -154,7 +154,7 @@ var countCad = `
                     </div>
                     <div class="card-icon">
                         <a href="#" class="flex">
-                        <img src="./img/siguiente-boton.png" alt=""/>
+                        <img src="./img/flecha-correcta.png" alt=""/>
                         </a>
                     </div>
                 </li>
@@ -162,7 +162,7 @@ var countCad = `
                 <li class="main-card">
                     <div class="container-card flex">
                         <div class="card-logo">
-                            <img src="./img/tarjeta-de-credito-azul.png" alt=""/>
+                            <img src="./img/tarjeta-de-credito-naranja.png" alt=""/>
                         </div>
                         <div class="card-text flex">
                             <div class="card-title">
@@ -175,7 +175,7 @@ var countCad = `
                     </div>
                     <div class="card-icon">
                         <a href="#" class="flex">
-                            <img src="./img/siguiente-boton.png" alt=""/>
+                            <img src="./img/flecha-correcta.png" alt=""/>
                         </a>
                     </div>
                 </li>
@@ -183,7 +183,7 @@ var countCad = `
                 <li class="main-card">
                     <div class="container-card flex">
                         <div class="card-logo">
-                            <img src="./img/contacto-azul.png" alt=""/>
+                            <img src="./img/contacto-naranja.png" alt=""/>
                         </div>
                         <div class="card-text flex">
                             <div class="card-title">
@@ -196,7 +196,7 @@ var countCad = `
                     </div>
                     <div class="card-icon">
                         <a href="#" class="flex">
-                            <img src="./img/siguiente-boton.png" alt=""/>
+                            <img src="./img/flecha-correcta.png" alt=""/>
                         </a>
                     </div>
                 </li>
