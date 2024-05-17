@@ -336,6 +336,13 @@ body {
 
   .infoPersonal > h4 {
     white-space: wrap;
+    text-align: center;
+  }
+
+  .infoPersonal > a {
+    white-space: nowrap;
+    text-align: center;
+    font-size: var(--query-font-size-075);
   }
 
   .infoPersonal > img {
@@ -353,6 +360,7 @@ body {
   .menuDetalles > ul > li > a > p,
   .menuSoporte > ul > li > a > p {
     white-space: wrap;
+    text-align:left;
   }
 
   .list-cards {
@@ -369,8 +377,11 @@ body {
     padding-bottom: var(--margin-5px);
   }
 
+  .card-title>p {
+    text-align:start;
+  }
+
   .card-description > p {
-    text-align: center;
     display: none;
   }
 }
