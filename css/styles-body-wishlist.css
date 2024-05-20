@@ -154,13 +154,14 @@ body {
   border: var(--normal-border);
 }
 
-.whishlis-empty {
-  margin-top: var(--margin-15px);
+.whishlist-empty {
+  margin-top: 50px;
   justify-content: center;
 }
 
-.whishlis-empty > p {
+.whishlist-empty > p {
   font-size: var(--menu3-font-size-15);
+  font-weight: bold;
 }
 
 .wishlist-container2 {

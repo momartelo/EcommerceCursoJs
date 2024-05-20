@@ -2,8 +2,6 @@ const wishlistSave = localStorage.getItem("wishlist");
 
 const wishlistItems = wishlistSave ? JSON.parse(wishlistSave) : [];
 
-
-
 var total = 0;
 
 //--------------wishlist-------------------//
@@ -63,8 +61,8 @@ if (wishlistItems.length > 0) {
   }
 } else {
   wishCad += `
-    <div class="whishlis-empty flex">
-        <p>Lista de deseos vacia</p>
+    <div class="whishlist-empty flex">
+        <p>&#129300; ¡Lista de deseos vacia!</p>
     </div>
     `;
 }
@@ -117,15 +115,12 @@ document.getElementById("vaciarLista").addEventListener("click", function () {
 
 const wishlistButtons = document.querySelectorAll(".wishlist-button-add");
 
-
 function toggleWishlistButton(elemento) {
-
   const imageElement = elemento.querySelector("img");
   const contenedorProducto = elemento.closest(".wishlist-container");
   const nombreProducto = contenedorProducto
     .querySelector("div span")
     .textContent.trim();
-
 
   let productoID = null;
 

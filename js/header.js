@@ -434,10 +434,9 @@ var headerCad = `
       <li class="i-header-nav"><a href="index.html">Inicio</a></li>
       <li class="np-header-nav"><a href="#">Marcas</a></li>
       <li class="m-header-nav"><a href="#">Vender</a></li>
-      <li class="v-header-nav"><a href="wishlist.html">Lista de Deseos</a></li>
       <li class="s-header-nav"><a href="#">Sucursales</a></li>
       <li class="n-header-nav"><a href="#">Nosotros</a></li>
-      <li class="c-header-nav"><a href="#">Contacto</a></li>
+      <li class="c-header-nav"><a href="count.html">Contacto</a></li>
     </ul>
   </div>
   <div class="header-nav-liks-hidden">
@@ -457,9 +456,6 @@ var headerCad = `
             <li class="m-header-nav-responsive">
               <a href="#">Vender</a>
             </li>
-            <li class="v-header-nav-responsive">
-              <a href="wishlist.html">Lista de Deseos</a>
-            </li>
             <li class="s-header-nav-responsive">
               <a href="#">Sucursales</a>
             </li>
@@ -467,23 +463,49 @@ var headerCad = `
               <a href="#">Nosotros</a>
             </li>
             <li class="c-header-nav-responsive">
-              <a href="#">Contacto</a>
+              <a href="count.html">Contacto</a>
             </li>
           </ul>
         </div>
       </li>
     </ul>
   </div>
-  <div class="divcart">
-    <div class="cart">
-      <span class="spancart">
-        <a href="#"
-          ><img src="./img/icons8-carrito-de-compras-24.png" alt=""
-        /></a>
-        <span>$0.00</span>
-      </span>
-    </div>
+  <div class="divwishlist-container">
+  <div class="wishlist-wrapper">
+    <span class="spanwishlist flex">
+      <a href="wishlist.html" class="flex"
+        ><img src="./img/corazon-rojo.png" alt="" width="24px"
+      /></a>
+      `;
+const wishlistItemsJSON = localStorage.getItem("wishlist");
+console.log("Desde el Header");
+console.log(wishlistItemsJSON);
+if (!wishlistItemsJSON) {
+  headerCad += `
+        <span>0</span>
+        `;
+} else {
+  wishlistItems = JSON.parse(wishlistItemsJSON);
+  console.log(wishlistItems);
+  headerCad += `
+        <span>${wishlistItems.length}</span>
+        `;
+}
+
+headerCad += `
+    </span>
   </div>
+</div>
+  <div class="divcart">
+  <div class="cart">
+    <span class="spancart">
+      <a href="cart.html"
+        ><img src="./img/icons8-carrito-de-compras-24.png" alt=""
+      /></a>
+      <span>$0.00</span>
+    </span>
+  </div>
+</div>
 </div>
 </div>
 `;
