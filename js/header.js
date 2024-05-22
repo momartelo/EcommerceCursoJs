@@ -502,7 +502,10 @@ headerCad += `
       <a href="cart.html"
         ><img src="./img/icons8-carrito-de-compras-24.png" alt=""
       /></a>
-      <span>$0.00</span>
+      `;
+const totalPriceLS = localStorage.getItem("totalPrice");
+headerCad += `
+      <span>$${totalPriceLS}</span>
     </span>
   </div>
 </div>

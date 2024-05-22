@@ -168,6 +168,10 @@ i {
   border: var(--normal-border);
 }
 
+.login-toogle-text {
+  color: var(--text-color);
+}
+
 .login-toogle > a {
   text-decoration: none;
   flex-direction: column;

@@ -1,4 +1,6 @@
 const cartListSave = localStorage.getItem("cartList");
+const totalPriceLocalS = localStorage.getItem("totalPrice");
+console.log(totalPriceLocalS);
 
 const cartListItems = cartListSave ? JSON.parse(cartListSave) : [];
 
@@ -50,7 +52,8 @@ if (cartListItems.length > 0) {
       </div>
     `;
 
-    totalcart += parseFloat(cartListItems[i].prize.replace("$", ""));
+    totalcart += parseFloat(cartListItems[i].prize.replace("S", ""));
+    console.log(totalcart);
   }
 } else {
   cartCad += `
@@ -94,6 +97,7 @@ document.getElementById("main-cart").innerHTML = cartCad;
 document.getElementById("vaciarLista").addEventListener("click", function () {
   // Vaciar la lista de deseos en localStorage
   localStorage.removeItem("cartList");
+  localStorage.removeItem("totalPrice");
   location.reload();
   // Actualizar la visualización o realizar cualquier otra acción necesaria
   console.log("La lista de deseos ha sido vaciada.");

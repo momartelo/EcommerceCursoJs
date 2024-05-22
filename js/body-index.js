@@ -939,7 +939,10 @@ console.log(cartTotalProducts);
 
 // Recuperar los elementos del carrito de localStorage al cargar la página
 var cartItems = JSON.parse(localStorage.getItem("cartList")) || [];
+var totalPrice = parseFloat(localStorage.getItem("totalPrice")) || 0;
 var productoID = "";
+
+console.log("Total price from localStorage:", totalPrice);
 
 cartTotalProducts.forEach((article) => {
   const cartButton =
@@ -992,6 +995,11 @@ cartTotalProducts.forEach((article) => {
       productPrice = productPriceElement ? productPriceElement.textContent : "";
     }
 
+    const priceNumber = parseFloat(
+      productPrice.replace("$", "").replace(",", "")
+    );
+    totalPrice += priceNumber;
+
     const product = {
       name: productName,
       image: productImage,
@@ -1003,7 +1011,9 @@ cartTotalProducts.forEach((article) => {
     cartItems.push(product);
     var cartItemsJSON = JSON.stringify(cartItems);
     localStorage.setItem("cartList", cartItemsJSON);
+    localStorage.setItem("totalPrice", totalPrice);
 
-    console.log(cartItemsJSON);
+    console.log("Cart Items", cartItemsJSON);
+    console.log("Total Price", totalPrice);
   });
 });
