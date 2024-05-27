@@ -204,19 +204,19 @@ body {
   opacity: 0.6;
 }
 
-.subbanner-row > li > a > img::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  transition: background-color 0.5s ease;
+.subbanner-li1 > a,
+.subbanner-li2 > a,
+.subbanner-li3 > a,
+.subbanner-li4 > a {
+  border-image: linear-gradient(#0003, #000) 0 50%/0 0%;
+  transition: all 0.6s;
+  cursor: pointer;
 }
-
-.subbanner-row > li > a > img:hover::after {
-  background-color: attr(data-hover-color);
+.subbanner-li1 > a:hover,
+.subbanner-li2 > a:hover,
+.subbanner-li3 > a:hover,
+.subbanner-li4 > a:hover {
+  border-image-width: 0 50%;
 }
 
 .tptnprods {
@@ -663,6 +663,15 @@ body {
 
 .botbanner-col > a > img:hover {
   opacity: 0.5;
+}
+
+.botbanner-col > a {
+  border-image: linear-gradient(#0003, #000) 0 50%/0 0%;
+  transition: all 0.6s;
+  cursor: pointer;
+}
+.botbanner-col > a:hover {
+  border-image-width: 0 50%;
 }
 
 .marcas-list {

@@ -1015,5 +1015,6 @@ cartTotalProducts.forEach((article) => {
 
     console.log("Cart Items", cartItemsJSON);
     console.log("Total Price", totalPrice);
+    location.reload();
   });
 });

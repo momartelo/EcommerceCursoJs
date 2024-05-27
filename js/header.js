@@ -504,13 +504,24 @@ headerCad += `
       /></a>
       `;
 const totalPriceLS = localStorage.getItem("totalPrice");
-headerCad += `
-      <span>$${totalPriceLS}</span>
-    </span>
-  </div>
+if (totalPriceLS > 0) {
+  headerCad += `
+  <span>$${parseFloat(totalPriceLS).toFixed(2)}</span>
+</span>
+</div>
 </div>
 </div>
 </div>
 `;
+} else {
+  headerCad += `
+  <span>$${parseFloat(0).toFixed(2)}</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+`;
+}
 
 document.getElementById("header").innerHTML = headerCad;

@@ -1,5 +1,6 @@
 const cartListSave = localStorage.getItem("cartList");
-const totalPriceLocalS = localStorage.getItem("totalPrice");
+var totalPriceLocalS = localStorage.getItem("totalPrice");
+console.log("Total Arriba");
 console.log(totalPriceLocalS);
 
 const cartListItems = cartListSave ? JSON.parse(cartListSave) : [];
@@ -51,19 +52,17 @@ if (cartListItems.length > 0) {
         </article>
       </div>
     `;
-
-    totalcart += parseFloat(cartListItems[i].prize.replace("S", ""));
-    console.log(totalcart);
   }
 } else {
   cartCad += `
     <div class="cartList-empty flex">
-        <p>Lista de deseos vacia</p>
+        <p>&#129300; Carrito vacio &#128722;</p>
     </div>
     `;
 }
 
-if (totalcart == 0) {
+if (totalPriceLocalS == null) {
+  totalPriceLocalS = 0;
   cartCad += `
   </div>
       <div class="cartList-container2 flex zero">
@@ -86,7 +85,9 @@ cartCad += `
   /></a>
 </div>
   <div class="product-price">
-     <span class="price">Total $${totalcart.toFixed(2)}</span>
+     <span class="price">Total $${parseFloat(totalPriceLocalS).toFixed(
+       2
+     )}</span>
   </div>
 
 </div>
@@ -95,7 +96,6 @@ cartCad += `
 document.getElementById("main-cart").innerHTML = cartCad;
 
 document.getElementById("vaciarLista").addEventListener("click", function () {
-  // Vaciar la lista de deseos en localStorage
   localStorage.removeItem("cartList");
   localStorage.removeItem("totalPrice");
   location.reload();

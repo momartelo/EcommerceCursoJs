@@ -62,7 +62,7 @@ if (wishlistItems.length > 0) {
 } else {
   wishCad += `
     <div class="whishlist-empty flex">
-        <p>&#129300; ¡Lista de deseos vacia!</p>
+        <p>&#129300; ¡Lista de deseos vacia! &#128221;</p>
     </div>
     `;
 }
